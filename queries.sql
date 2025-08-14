@@ -16,7 +16,7 @@ WITH RECURSIVE tree_chain AS (
 
     UNION ALL
 
-    SELECT t.id, at.parent_tree_id, tc.depth + 1
+    SELECT t.id, t.parent_tree_id, tc.depth + 1
     FROM apple_trees t
     INNER JOIN tree_chain tc ON t.parent_tree_id = tc.id
 )
